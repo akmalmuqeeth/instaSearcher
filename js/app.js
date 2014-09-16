@@ -12,8 +12,8 @@ controller("searchController", function($scope, $http){
 		var params = {client_id: '852ef9dc71b54c159aa5bfe6348afebd', callback: 'JSON_CALLBACK'};
 		var headers =  {'Content-type': 'application/json', 'Accept': 'application/json'};
 
-		var getUrl = "https://api.instagram.com/v1/tags/"+$scope.tag + "/media/recent";
-		$scope.searchMessage = 'Searching Instagram for photos tagged with \"' + $scope.tag + '\"';
+		var getUrl = "https://api.instagram.com/v1/tags/"+$scope.tag.replace(/\s/g, '') + "/media/recent";
+		$scope.message = 'Searching Instagram for photos tagged with \"' + $scope.tag + '\"';
 		
 		$http.jsonp(getUrl, {
             params: {
